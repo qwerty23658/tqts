@@ -49,7 +49,7 @@ def get_weather(region):
     response = get(weather_url, headers=headers).json()
     # 天气帅达版
     weather = '白天'+response['daily'][0]["textDay"]+'，'+'傍晚'+response['daily'][0]["textDay"]
-    if (response['daily'][0]["textDay"].index('雨')):
+    if (response['daily'][0]["textDay"].index("雨")):
         daisan = "今天有雨记得带伞哦~"
     else:
         daisan = "今天不下雨~"
