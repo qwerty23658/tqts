@@ -49,15 +49,19 @@ def get_weather(region):
     response = get(weather_url, headers=headers).json()
     # 天气帅达版
     weather = '白天'+response['daily'][0]["textDay"]+'，'+'傍晚'+response['daily'][0]["textDay"]
+    if (response['daily'][0]["textDay"].index('雨')):
+        daisan = "今天有雨记得带伞哦~"
+     else:
+        daisan = "今天不下雨~”
     # 当前温度
     temp = response['daily'][0]["tempMin"]+ u"\N{DEGREE SIGN}" + "C"+'—'+response['daily'][0]["tempMax"]+ u"\N{DEGREE SIGN}" + "C"
-    if int(response['daily'][0]["tempMin"]) <= 18:
+    if int(response['daily'][0]["tempMin"]) <= 16:
         xigua = "天气变凉啦，多穿点衣服哦~"
     else:
         xigua = "今天又是很想你的一天~"
     # 风向
     wind_dir = response['daily'][0]["windDirDay"]
-    return weather, temp, wind_dir, xigua
+    return weather, temp, wind_dir, xigua, daisan
  
 #--------关注微信公众号：繁星资源，更多资源等你拿----------
 def get_birthday(birthday, year, today):
