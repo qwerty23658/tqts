@@ -51,7 +51,7 @@ def get_weather(region):
     weather = '白天'+response['daily'][0]["textDay"]+'，'+'傍晚'+response['daily'][0]["textDay"]
     if (response['daily'][0]["textDay"].index('雨')):
         daisan = "今天有雨记得带伞哦~"
-     else:
+    else:
         daisan = "今天不下雨~”
     # 当前温度
     temp = response['daily'][0]["tempMin"]+ u"\N{DEGREE SIGN}" + "C"+'—'+response['daily'][0]["tempMax"]+ u"\N{DEGREE SIGN}" + "C"
